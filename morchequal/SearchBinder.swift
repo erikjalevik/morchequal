@@ -33,7 +33,12 @@ class SearchBinder: SearchBinderProtocol {
         iTunesClient.searchForSongs(by: artist) { [weak self] maybeTracks in
             switch maybeTracks {
                 case .success(let tracks):
-                    self?.tracks = tracks
+                    self?.tracks = tracks.sorted {
+                        // TODO: Ugly non-production sorting but it works on
+                        // this data set since date strings are in
+                        // year-month-date order.
+                        a, b in a.releaseDate < b.releaseDate
+                    }
                     completionHandler()
                 case .failure:
                     self?.tracks = []
