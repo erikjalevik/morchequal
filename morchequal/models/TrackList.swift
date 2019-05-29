@@ -1,5 +1,5 @@
 //
-//  SongList.swift
+//  TrackList.swift
 //  morchequal
 //
 //  Created by Erik Jälevik on 29.05.19.
@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct SongList {
-    init(from dict: [String: Any] = [:]) {
-
-    }
+struct TrackList: Decodable {
+    let results: [Track]
+    let resultCount: Int
 }

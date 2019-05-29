@@ -25,7 +25,7 @@ class ITunesClient {
     
     func searchForSongs(
         by artist: String,
-        completionHandler: @escaping (Result<SongList, Error>) -> Void
+        completionHandler: @escaping (Result<[Track], Error>) -> Void
     ) {
         let endpoint = "search";
 
@@ -50,12 +50,19 @@ class ITunesClient {
             return
         }
 
-        fetcher.get(url: url) { (data: Result<Data, Error>) in
-            let dict = data.flatMap(parseJson)
-            switch dict {
-                case .success(let dict):
-                    let songs = SongList(from: dict)
-                    completionHandler(.success(songs))
+        fetcher.get(url: url) { (maybeData: Result<Data, Error>) in
+            let maybeList = maybeData
+                .flatMap { data -> Result<TrackList, Error> in
+                    let decoder = JSONDecoder()
+                    return Result {
+                        try decoder.decode(TrackList.self, from: data)
+                    }
+                }
+            
+            switch maybeList {
+                case .success(let list):
+                    let tracks = list.results.filter { t in t.kind == "song" }
+                    completionHandler(.success(tracks))
                 case .failure(let error):
                     print(error.localizedDescription)
                     completionHandler(.failure(error))
