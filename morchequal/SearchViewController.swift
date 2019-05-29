@@ -9,11 +9,6 @@
 import UIKit
 
 
-// MARK: Constants
-
-fileprivate let cellId = "track"
-
-
 // MARK: Implementation
 
 class SearchViewController: UIViewController {
@@ -37,7 +32,8 @@ class SearchViewController: UIViewController {
 
         view.backgroundColor = UIColor.white
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        tableView.rowHeight = TrackCell.height
+        tableView.register(TrackCell.self, forCellReuseIdentifier: TrackCell.id)
         tableView.tableFooterView = UIView() // hide empty cell borders
         tableView.dataSource = self
         view.addSubview(tableView)
@@ -97,11 +93,9 @@ extension SearchViewController: UITableViewDataSource {
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: cellId, for: indexPath
-        )
-
-        cell.textLabel?.text = self.binder.tracks[indexPath.row].name
-
+            withIdentifier: TrackCell.id, for: indexPath
+        ) as! TrackCell
+        cell.populate(with: self.binder.tracks[indexPath.row])
         return cell
     }
 }

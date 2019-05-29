@@ -26,6 +26,8 @@
 		A0BBE353229EDAAB004E4ED1 /* SearchBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE351229EDAAB004E4ED1 /* SearchBinder.swift */; };
 		A0BBE355229EDACC004E4ED1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE354229EDACC004E4ED1 /* SearchViewController.swift */; };
 		A0BBE356229EDACC004E4ED1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE354229EDACC004E4ED1 /* SearchViewController.swift */; };
+		A0BBE359229EFE66004E4ED1 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE358229EFE66004E4ED1 /* TrackCell.swift */; };
+		A0BBE35A229EFE66004E4ED1 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE358229EFE66004E4ED1 /* TrackCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,7 @@
 		A0BBE34F229EBE9C004E4ED1 /* ITunesClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesClientTests.swift; sourceTree = "<group>"; };
 		A0BBE351229EDAAB004E4ED1 /* SearchBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBinder.swift; sourceTree = "<group>"; };
 		A0BBE354229EDACC004E4ED1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A0BBE358229EFE66004E4ED1 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,7 @@
 		A0BBE315229E8B52004E4ED1 /* morchequal */ = {
 			isa = PBXGroup;
 			children = (
+				A0BBE357229EFE55004E4ED1 /* views */,
 				A0BBE347229EB9E8004E4ED1 /* models */,
 				A0BBE340229EB13B004E4ED1 /* api */,
 				A0BBE336229E953E004E4ED1 /* utils */,
@@ -159,6 +163,14 @@
 				A0BBE34F229EBE9C004E4ED1 /* ITunesClientTests.swift */,
 			);
 			path = api;
+			sourceTree = "<group>";
+		};
+		A0BBE357229EFE55004E4ED1 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				A0BBE358229EFE66004E4ED1 /* TrackCell.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +274,7 @@
 			files = (
 				A0BBE33B229E9D3F004E4ED1 /* GenericError.swift in Sources */,
 				A0BBE349229EB9FD004E4ED1 /* TrackList.swift in Sources */,
+				A0BBE359229EFE66004E4ED1 /* TrackCell.swift in Sources */,
 				A0BBE355229EDACC004E4ED1 /* SearchViewController.swift in Sources */,
 				A0BBE317229E8B52004E4ED1 /* AppDelegate.swift in Sources */,
 				A0BBE34C229EBA07004E4ED1 /* Track.swift in Sources */,
@@ -280,6 +293,7 @@
 				A0BBE343229EB15E004E4ED1 /* ITunesClient.swift in Sources */,
 				A0BBE356229EDACC004E4ED1 /* SearchViewController.swift in Sources */,
 				A0BBE350229EBE9C004E4ED1 /* ITunesClientTests.swift in Sources */,
+				A0BBE35A229EFE66004E4ED1 /* TrackCell.swift in Sources */,
 				A0BBE33C229E9D3F004E4ED1 /* GenericError.swift in Sources */,
 				A0BBE33F229EA185004E4ED1 /* FetcherTests.swift in Sources */,
 				A0BBE339229E957F004E4ED1 /* Fetcher.swift in Sources */,
