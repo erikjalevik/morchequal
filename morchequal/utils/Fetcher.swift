@@ -110,8 +110,6 @@ class Fetcher: FetcherProtocol {
                 return
             }
     
-            print("Fetcher.get fetched: \(String(describing: String(data: data, encoding: .utf8)))")
-
             complete(.success(data))
         }
     
