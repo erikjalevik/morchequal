@@ -11,7 +11,11 @@
 		A0BBE319229E8B52004E4ED1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE318229E8B52004E4ED1 /* ViewController.swift */; };
 		A0BBE31E229E8B54004E4ED1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0BBE31D229E8B54004E4ED1 /* Assets.xcassets */; };
 		A0BBE321229E8B54004E4ED1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0BBE31F229E8B54004E4ED1 /* LaunchScreen.storyboard */; };
-		A0BBE32C229E8B54004E4ED1 /* morchequalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE32B229E8B54004E4ED1 /* morchequalTests.swift */; };
+		A0BBE338229E957F004E4ED1 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE337229E957F004E4ED1 /* Fetcher.swift */; };
+		A0BBE339229E957F004E4ED1 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE337229E957F004E4ED1 /* Fetcher.swift */; };
+		A0BBE33B229E9D3F004E4ED1 /* GenericError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE33A229E9D3F004E4ED1 /* GenericError.swift */; };
+		A0BBE33C229E9D3F004E4ED1 /* GenericError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE33A229E9D3F004E4ED1 /* GenericError.swift */; };
+		A0BBE33F229EA185004E4ED1 /* FetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE33E229EA185004E4ED1 /* FetcherTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,8 +36,10 @@
 		A0BBE320229E8B54004E4ED1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0BBE322229E8B54004E4ED1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0BBE327229E8B54004E4ED1 /* morchequalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = morchequalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0BBE32B229E8B54004E4ED1 /* morchequalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = morchequalTests.swift; sourceTree = "<group>"; };
 		A0BBE32D229E8B54004E4ED1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0BBE337229E957F004E4ED1 /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
+		A0BBE33A229E9D3F004E4ED1 /* GenericError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericError.swift; sourceTree = "<group>"; };
+		A0BBE33E229EA185004E4ED1 /* FetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetcherTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,7 @@
 		A0BBE315229E8B52004E4ED1 /* morchequal */ = {
 			isa = PBXGroup;
 			children = (
+				A0BBE336229E953E004E4ED1 /* utils */,
 				A0BBE316229E8B52004E4ED1 /* AppDelegate.swift */,
 				A0BBE318229E8B52004E4ED1 /* ViewController.swift */,
 				A0BBE31D229E8B54004E4ED1 /* Assets.xcassets */,
@@ -87,10 +94,27 @@
 		A0BBE32A229E8B54004E4ED1 /* morchequalTests */ = {
 			isa = PBXGroup;
 			children = (
-				A0BBE32B229E8B54004E4ED1 /* morchequalTests.swift */,
+				A0BBE33D229EA16F004E4ED1 /* utils */,
 				A0BBE32D229E8B54004E4ED1 /* Info.plist */,
 			);
 			path = morchequalTests;
+			sourceTree = "<group>";
+		};
+		A0BBE336229E953E004E4ED1 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				A0BBE337229E957F004E4ED1 /* Fetcher.swift */,
+				A0BBE33A229E9D3F004E4ED1 /* GenericError.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		A0BBE33D229EA16F004E4ED1 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				A0BBE33E229EA185004E4ED1 /* FetcherTests.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,7 +170,6 @@
 					};
 					A0BBE326229E8B54004E4ED1 = {
 						CreatedOnToolsVersion = 10.2.1;
-						TestTargetID = A0BBE312229E8B52004E4ED1;
 					};
 				};
 			};
@@ -193,8 +216,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0BBE33B229E9D3F004E4ED1 /* GenericError.swift in Sources */,
 				A0BBE319229E8B52004E4ED1 /* ViewController.swift in Sources */,
 				A0BBE317229E8B52004E4ED1 /* AppDelegate.swift in Sources */,
+				A0BBE338229E957F004E4ED1 /* Fetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +227,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0BBE32C229E8B54004E4ED1 /* morchequalTests.swift in Sources */,
+				A0BBE33C229E9D3F004E4ED1 /* GenericError.swift in Sources */,
+				A0BBE33F229EA185004E4ED1 /* FetcherTests.swift in Sources */,
+				A0BBE339229E957F004E4ED1 /* Fetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,7 +411,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 95VXBQYQPD;
 				INFOPLIST_FILE = morchequalTests/Info.plist;
@@ -397,7 +423,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/morchequal.app/morchequal";
 			};
 			name = Debug;
 		};
@@ -405,7 +430,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 95VXBQYQPD;
 				INFOPLIST_FILE = morchequalTests/Info.plist;
@@ -418,7 +442,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/morchequal.app/morchequal";
 			};
 			name = Release;
 		};
