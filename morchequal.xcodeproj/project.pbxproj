@@ -16,6 +16,15 @@
 		A0BBE33B229E9D3F004E4ED1 /* GenericError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE33A229E9D3F004E4ED1 /* GenericError.swift */; };
 		A0BBE33C229E9D3F004E4ED1 /* GenericError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE33A229E9D3F004E4ED1 /* GenericError.swift */; };
 		A0BBE33F229EA185004E4ED1 /* FetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE33E229EA185004E4ED1 /* FetcherTests.swift */; };
+		A0BBE342229EB15E004E4ED1 /* ITunesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE341229EB15E004E4ED1 /* ITunesClient.swift */; };
+		A0BBE343229EB15E004E4ED1 /* ITunesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE341229EB15E004E4ED1 /* ITunesClient.swift */; };
+		A0BBE345229EB8BF004E4ED1 /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE344229EB8BF004E4ED1 /* parse.swift */; };
+		A0BBE346229EB8BF004E4ED1 /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE344229EB8BF004E4ED1 /* parse.swift */; };
+		A0BBE349229EB9FD004E4ED1 /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE348229EB9FD004E4ED1 /* SongList.swift */; };
+		A0BBE34A229EB9FD004E4ED1 /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE348229EB9FD004E4ED1 /* SongList.swift */; };
+		A0BBE34C229EBA07004E4ED1 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE34B229EBA07004E4ED1 /* Song.swift */; };
+		A0BBE34D229EBA07004E4ED1 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE34B229EBA07004E4ED1 /* Song.swift */; };
+		A0BBE350229EBE9C004E4ED1 /* ITunesClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBE34F229EBE9C004E4ED1 /* ITunesClientTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +49,11 @@
 		A0BBE337229E957F004E4ED1 /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
 		A0BBE33A229E9D3F004E4ED1 /* GenericError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericError.swift; sourceTree = "<group>"; };
 		A0BBE33E229EA185004E4ED1 /* FetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetcherTests.swift; sourceTree = "<group>"; };
+		A0BBE341229EB15E004E4ED1 /* ITunesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesClient.swift; sourceTree = "<group>"; };
+		A0BBE344229EB8BF004E4ED1 /* parse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parse.swift; sourceTree = "<group>"; };
+		A0BBE348229EB9FD004E4ED1 /* SongList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongList.swift; sourceTree = "<group>"; };
+		A0BBE34B229EBA07004E4ED1 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		A0BBE34F229EBE9C004E4ED1 /* ITunesClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesClientTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +95,8 @@
 		A0BBE315229E8B52004E4ED1 /* morchequal */ = {
 			isa = PBXGroup;
 			children = (
+				A0BBE347229EB9E8004E4ED1 /* models */,
+				A0BBE340229EB13B004E4ED1 /* api */,
 				A0BBE336229E953E004E4ED1 /* utils */,
 				A0BBE316229E8B52004E4ED1 /* AppDelegate.swift */,
 				A0BBE318229E8B52004E4ED1 /* ViewController.swift */,
@@ -94,6 +110,7 @@
 		A0BBE32A229E8B54004E4ED1 /* morchequalTests */ = {
 			isa = PBXGroup;
 			children = (
+				A0BBE34E229EBE88004E4ED1 /* api */,
 				A0BBE33D229EA16F004E4ED1 /* utils */,
 				A0BBE32D229E8B54004E4ED1 /* Info.plist */,
 			);
@@ -105,6 +122,7 @@
 			children = (
 				A0BBE337229E957F004E4ED1 /* Fetcher.swift */,
 				A0BBE33A229E9D3F004E4ED1 /* GenericError.swift */,
+				A0BBE344229EB8BF004E4ED1 /* parse.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -115,6 +133,31 @@
 				A0BBE33E229EA185004E4ED1 /* FetcherTests.swift */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		A0BBE340229EB13B004E4ED1 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				A0BBE341229EB15E004E4ED1 /* ITunesClient.swift */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		A0BBE347229EB9E8004E4ED1 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				A0BBE348229EB9FD004E4ED1 /* SongList.swift */,
+				A0BBE34B229EBA07004E4ED1 /* Song.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		A0BBE34E229EBE88004E4ED1 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				A0BBE34F229EBE9C004E4ED1 /* ITunesClientTests.swift */,
+			);
+			path = api;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,8 +261,12 @@
 			files = (
 				A0BBE33B229E9D3F004E4ED1 /* GenericError.swift in Sources */,
 				A0BBE319229E8B52004E4ED1 /* ViewController.swift in Sources */,
+				A0BBE349229EB9FD004E4ED1 /* SongList.swift in Sources */,
 				A0BBE317229E8B52004E4ED1 /* AppDelegate.swift in Sources */,
+				A0BBE34C229EBA07004E4ED1 /* Song.swift in Sources */,
+				A0BBE342229EB15E004E4ED1 /* ITunesClient.swift in Sources */,
 				A0BBE338229E957F004E4ED1 /* Fetcher.swift in Sources */,
+				A0BBE345229EB8BF004E4ED1 /* parse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +274,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0BBE34D229EBA07004E4ED1 /* Song.swift in Sources */,
+				A0BBE34A229EB9FD004E4ED1 /* SongList.swift in Sources */,
+				A0BBE343229EB15E004E4ED1 /* ITunesClient.swift in Sources */,
+				A0BBE346229EB8BF004E4ED1 /* parse.swift in Sources */,
+				A0BBE350229EBE9C004E4ED1 /* ITunesClientTests.swift in Sources */,
 				A0BBE33C229E9D3F004E4ED1 /* GenericError.swift in Sources */,
 				A0BBE33F229EA185004E4ED1 /* FetcherTests.swift in Sources */,
 				A0BBE339229E957F004E4ED1 /* Fetcher.swift in Sources */,

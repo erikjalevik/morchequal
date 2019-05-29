@@ -40,10 +40,15 @@ extension URLSession: URLSessionProtocol {
 
 extension URLSessionDataTask: URLSessionDataTaskProtocol {}
 
+typealias FetchCompletionHandler = (Result<Data, Error>) -> Void
+
+protocol FetcherProtocol {
+    func get(url: URL, completionHandler: @escaping FetchCompletionHandler)
+}
 
 // MARK: Implementation
 
-class Fetcher {
+class Fetcher: FetcherProtocol {
     private let session: URLSessionProtocol
     private var dataTask: URLSessionDataTaskProtocol?
 
@@ -51,7 +56,7 @@ class Fetcher {
         self.session = session
     }
     
-    func get(url: URL, completionHandler: @escaping (Result<Data, Error>) -> Void) {
+    func get(url: URL, completionHandler: @escaping FetchCompletionHandler) {
         var request = URLRequest(url: url)
         request.httpMethod = "GET";
         perform(request: request, completionHandler: completionHandler)
