@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 // MARK: Constants
 
 fileprivate let outerMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -111,7 +110,16 @@ class TrackCell: UITableViewCell {
     func populate(with track: Track) {
         nameLabel.text = track.name
         albumLabel.text = track.album
-        dateLabel.text = track.releaseDate
+
+        // TODO: This is a hacky shortcut. In a real production app, the date
+        // string received from the server should of course be parsed into a
+        // Date and formatted properly. Furthermore, the formatting of the date
+        // for display should be happening in the SearchBinder. But... time. 🤷🏻‍♂️
+        let rd = track.releaseDate
+        let lowerBound = rd.index(rd.startIndex, offsetBy: 0)
+        let upperBound = rd.index(rd.startIndex, offsetBy: 10)
+        let dateOnly = rd[lowerBound..<upperBound]
+        dateLabel.text = String(dateOnly)
 
         let url = URL(string: track.artworkUrl)!
         let data = try? Data(contentsOf: url)
