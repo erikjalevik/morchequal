@@ -11,12 +11,22 @@ import Foundation
 
 // MARK: Constants
 
-let hostname = "https://itunes.apple.com/"
+fileprivate let hostname = "https://itunes.apple.com/"
+
+
+// MARK: Protocols
+
+protocol ITunesClientProtocol {
+    func searchForSongs(
+        by artist: String,
+        completionHandler: @escaping (Result<[Track], Error>) -> Void
+    )
+}
 
 
 // MARK: Implementation
 
-class ITunesClient {
+class ITunesClient: ITunesClientProtocol {
     private let fetcher: FetcherProtocol
 
     init(fetcher: FetcherProtocol = Fetcher()) {
