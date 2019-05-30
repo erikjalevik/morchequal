@@ -46,6 +46,7 @@ protocol FetcherProtocol {
     func get(url: URL, completionHandler: @escaping FetchCompletionHandler)
 }
 
+
 // MARK: Implementation
 
 class Fetcher: FetcherProtocol {
