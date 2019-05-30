@@ -98,7 +98,9 @@ class SearchBinder: SearchBinderProtocol {
                     let data = try? Data(contentsOf: url), // causes HTTP fetch
                     let image = UIImage(data: data)
                 else {
-                    completionHandler(placeholder)
+                    DispatchQueue.main.async {
+                        completionHandler(placeholder)
+                    }
                     return
                 }
                 
