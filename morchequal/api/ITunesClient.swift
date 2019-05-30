@@ -17,7 +17,7 @@ fileprivate let hostname = "https://itunes.apple.com/"
 // MARK: Protocols
 
 protocol ITunesClientProtocol {
-    func searchForSongs(
+    func searchForTracks(
         by artist: String,
         completionHandler: @escaping (Result<[Track], Error>) -> Void
     )
@@ -33,16 +33,16 @@ class ITunesClient: ITunesClientProtocol {
         self.fetcher = fetcher
     }
     
-    func searchForSongs(
+    func searchForTracks(
         by artist: String,
         completionHandler: @escaping (Result<[Track], Error>) -> Void
     ) {
-        let endpoint = "search";
+        let endpoint = "search"
 
         guard var comp = URLComponents(string: "\(hostname)\(endpoint)") else {
             // Using assert here and below since these operations should really
             // never fail in production, they indicate programmer error.
-            let msg = "URLComponents creation failed";
+            let msg = "URLComponents creation failed"
             assertionFailure(msg)
             completionHandler(.failure(GenericError.runtimeError(msg)))
             return
@@ -54,7 +54,7 @@ class ITunesClient: ITunesClientProtocol {
         comp.queryItems = params.map { URLQueryItem(name: $0, value: "\($1)") }
      
         guard let url = comp.url else {
-            let msg = "URL creation from components failed";
+            let msg = "URL creation from components failed"
             assertionFailure(msg)
             completionHandler(.failure(GenericError.runtimeError(msg)))
             return

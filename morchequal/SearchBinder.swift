@@ -7,14 +7,14 @@
 //
 
 import UIKit
-import Foundation
 
 
 // MARK: Procotols
 
 protocol SearchBinderProtocol {
     var tracks: [Track] { get }
-    func searchForMorcheebaTracks(
+    func searchForTracks(
+        by artist: String,
         completionHandler: @escaping () -> Void
     )
     func getArtwork(
@@ -41,9 +41,11 @@ class SearchBinder: SearchBinderProtocol {
         self.artworkCache = artworkCache
     }
     
-    func searchForMorcheebaTracks(completionHandler: @escaping () -> Void) {
-        let artist = "morcheeba"
-        iTunesClient.searchForSongs(by: artist) { [weak self] maybeTracks in
+    func searchForTracks(
+        by artist: String,
+        completionHandler: @escaping () -> Void
+    ) {
+        iTunesClient.searchForTracks(by: artist) { [weak self] maybeTracks in
             switch maybeTracks {
                 case .success(let tracks):
                     self?.tracks = tracks.sorted {

@@ -6,8 +6,6 @@
 //  Copyright © 2019 Fileside. All rights reserved.
 //
 
-import Foundation
-
 /* The API response for one track looks like this:
 {
     artistId = 161916;

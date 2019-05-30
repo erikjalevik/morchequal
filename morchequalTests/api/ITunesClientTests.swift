@@ -32,7 +32,7 @@ class ITunesClientTests: XCTestCase {
     func testHandlingOfBadJson() {
         let expectation = XCTestExpectation()
 
-        iTunesClient?.searchForSongs(by: "dummy") { list in
+        iTunesClient?.searchForTracks(by: "dummy") { list in
             if case .success = list {
                 XCTFail("Expected .failure when fetcher returned bad JSON")
             } else {

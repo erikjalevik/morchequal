@@ -17,7 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var iTunesClient: ITunesClient!
     private var artworkCache: NSCache<NSString, UIImage>!
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
         let rootVC = initApp()
 
         window = UIWindow(frame: UIScreen.main.bounds)

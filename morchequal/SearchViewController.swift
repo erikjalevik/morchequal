@@ -8,6 +8,10 @@
 
 import UIKit
 
+// MARK: Constants
+
+fileprivate let hardcodedArtist = "morcheeba"
+
 
 // MARK: Implementation
 
@@ -73,7 +77,7 @@ class SearchViewController: UIViewController {
         // into observables, which could then be subscribed to (or bound)
         // here in the view controller.
         spinner.startAnimating()
-        self.binder.searchForMorcheebaTracks { [weak self] in
+        self.binder.searchForTracks(by: hardcodedArtist) { [weak self] in
             self?.tableView.reloadData()
             self?.spinner.stopAnimating()
         }
