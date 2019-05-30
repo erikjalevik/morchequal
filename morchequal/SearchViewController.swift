@@ -18,7 +18,7 @@ class SearchViewController: UIViewController {
     private let tableView = UITableView(frame: .zero)
     private let spinner = UIActivityIndicatorView()
 
-    init(binder: SearchBinderProtocol = SearchBinder()) {
+    init(binder: SearchBinderProtocol) {
         self.binder = binder
         super.init(nibName: nil, bundle: nil)
     }

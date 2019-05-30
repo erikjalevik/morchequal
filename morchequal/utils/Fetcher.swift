@@ -52,7 +52,7 @@ class Fetcher: FetcherProtocol {
     private let session: URLSessionProtocol
     private var dataTask: URLSessionDataTaskProtocol?
 
-    init(session: URLSessionProtocol = URLSession.shared) {
+    init(session: URLSessionProtocol) {
         self.session = session
     }
     

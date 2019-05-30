@@ -34,8 +34,8 @@ class SearchBinder: SearchBinderProtocol {
     private let artworkCache: NSCache<NSString, UIImage>
 
     init(
-        client: ITunesClientProtocol = ITunesClient(),
-        artworkCache: NSCache<NSString, UIImage> = NSCache<NSString, UIImage>()
+        client: ITunesClientProtocol,
+        artworkCache: NSCache<NSString, UIImage>
     ) {
         self.iTunesClient = client
         self.artworkCache = artworkCache

@@ -29,7 +29,7 @@ protocol ITunesClientProtocol {
 class ITunesClient: ITunesClientProtocol {
     private let fetcher: FetcherProtocol
 
-    init(fetcher: FetcherProtocol = Fetcher()) {
+    init(fetcher: FetcherProtocol) {
         self.fetcher = fetcher
     }
     
