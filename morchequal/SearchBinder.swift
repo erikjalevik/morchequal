@@ -52,7 +52,7 @@ class SearchBinder: SearchBinderProtocol {
             switch maybeTracks {
                 case .success(let tracks):
                     self?.tracks = tracks.sorted {
-                        $0.releaseDate < $1.releaseDate
+                        ($0.releaseDate, $0.album) < ($1.releaseDate, $1.album)
                     }
                     completionHandler()
                 case .failure:
