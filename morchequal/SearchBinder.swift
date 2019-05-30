@@ -6,6 +6,10 @@
 //  Copyright © 2019 Fileside. All rights reserved.
 //
 
+import UIKit
+import Foundation
+
+
 // MARK: Procotols
 
 protocol SearchBinderProtocol {
@@ -13,6 +17,10 @@ protocol SearchBinderProtocol {
     func searchForMorcheebaTracks(
         completionHandler: @escaping () -> Void
     )
+    func getArtwork(
+        for track: Track,
+        completionHandler: @escaping (UIImage) -> Void
+    ) -> UIImage
 }
 
 
@@ -23,9 +31,14 @@ class SearchBinder: SearchBinderProtocol {
     var tracks: [Track] = []
     
     private let iTunesClient: ITunesClientProtocol
+    private let artworkCache: NSCache<NSString, UIImage>
 
-    init(client: ITunesClientProtocol = ITunesClient()) {
+    init(
+        client: ITunesClientProtocol = ITunesClient(),
+        artworkCache: NSCache<NSString, UIImage> = NSCache<NSString, UIImage>()
+    ) {
         self.iTunesClient = client
+        self.artworkCache = artworkCache
     }
     
     func searchForMorcheebaTracks(completionHandler: @escaping () -> Void) {
@@ -44,6 +57,50 @@ class SearchBinder: SearchBinderProtocol {
                     self?.tracks = []
                     completionHandler()
             }
+        }
+    }
+    
+    // This function has a somewhat quirky API, due to the requirement of using
+    // Apple-only APIs.
+    //
+    // If called for the first time for a track, it immediately returns a
+    // placeholder image, and then delivers the real artwork once downloaded
+    // using the completionHandler. It also sticks the downloaded image into
+    // its artwork cache.
+    //
+    // If called again for the same track, it immediately returns the cached
+    // image and the completionHandler is never called.
+    //
+    // This is the kind of use case where RX Observables would really shine
+    // as we could just return a stream of values via one asynchronous
+    // mechanism instead of having this two-fold approach.
+    func getArtwork(
+        for track: Track,
+        completionHandler: @escaping (UIImage) -> Void
+    ) -> UIImage {
+        let cacheKey = track.artworkUrl as NSString
+        if let cachedImage = artworkCache.object(forKey: cacheKey) {
+            return cachedImage
+        } else {
+            let placeholder = UIImage(named: "AlbumPlaceholder")!
+
+            // Download image from URL on a background thread
+            DispatchQueue.global(qos: .background).async {
+                guard
+                    let url = URL(string: track.artworkUrl),
+                    let data = try? Data(contentsOf: url), // causes HTTP fetch
+                    let image = UIImage(data: data)
+                else {
+                    completionHandler(placeholder)
+                    return
+                }
+                
+                DispatchQueue.main.async { [weak self] in
+                    self?.artworkCache.setObject(image, forKey: cacheKey)
+                    completionHandler(image)
+                }
+            }
+            return placeholder
         }
     }
 

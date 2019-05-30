@@ -92,10 +92,23 @@ extension SearchViewController: UITableViewDataSource {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(
             withIdentifier: TrackCell.id, for: indexPath
         ) as! TrackCell
-        cell.populate(with: self.binder.tracks[indexPath.row])
+        
+        let track = self.binder.tracks[indexPath.row]
+        cell.setInfo(from: track)
+        
+        // We need to load the artwork asynchronously to keep the table view
+        // scrolling smoothly.
+        let initialArtwork = self.binder.getArtwork(for: track) { artwork in
+            if let stillVisible = tableView.cellForRow(at: indexPath) {
+                (stillVisible as! TrackCell).setArtwork(image: artwork)
+            }
+        }
+        cell.setArtwork(image: initialArtwork)
+        
         return cell
     }
 }

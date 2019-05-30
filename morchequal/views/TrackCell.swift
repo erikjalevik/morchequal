@@ -106,7 +106,7 @@ class TrackCell: UITableViewCell {
         albumCover.setContentHuggingPriority(.required, for: .vertical)
     }
 
-    func populate(with track: Track) {
+    func setInfo(from track: Track) {
         nameLabel.text = track.name
         albumLabel.text = track.album
 
@@ -119,9 +119,9 @@ class TrackCell: UITableViewCell {
         let upperBound = rd.index(rd.startIndex, offsetBy: 10)
         let dateOnly = rd[lowerBound..<upperBound]
         dateLabel.text = String(dateOnly)
-
-        let url = URL(string: track.artworkUrl)!
-        let data = try? Data(contentsOf: url)
-        albumCover.image = (data != nil) ? UIImage(data: data!) : UIImage()
+    }
+    
+    func setArtwork(image: UIImage) {
+        self.albumCover.image = image
     }
 }
