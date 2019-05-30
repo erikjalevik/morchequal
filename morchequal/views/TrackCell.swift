@@ -98,8 +98,7 @@ class TrackCell: UITableViewCell {
             mainStack.topAnchor.constraint(equalTo: margins.topAnchor),
             mainStack.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
             
-            albumCover.widthAnchor.constraint(equalToConstant: TrackCell.height),
-            albumCover.heightAnchor.constraint(equalToConstant: TrackCell.height),
+            albumCover.widthAnchor.constraint(equalTo: albumCover.heightAnchor),
         ])
         
         spacer.setContentCompressionResistancePriority(.required, for: .vertical)
