@@ -6,6 +6,8 @@
 //  Copyright © 2019 Fileside. All rights reserved.
 //
 
+import Foundation
+
 /* The API response for one track looks like this:
 {
     artistId = 161916;
@@ -48,7 +50,7 @@ struct Track: Decodable {
     let artworkUrl: String
     let album: String
     let kind: String
-    let releaseDate: String
+    let releaseDate: Date
 
     enum CodingKeys: String, CodingKey {
         case artist = "artistName"

@@ -64,6 +64,7 @@ class ITunesClient: ITunesClientProtocol {
             let maybeList = maybeData
                 .flatMap { data -> Result<TrackList, Error> in
                     let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .iso8601
                     return Result {
                         try decoder.decode(TrackList.self, from: data)
                     }

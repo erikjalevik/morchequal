@@ -17,6 +17,7 @@ protocol SearchBinderProtocol {
         by artist: String,
         completionHandler: @escaping () -> Void
     )
+    func getFormattedReleaseDate(for track: Track) -> String
     func getArtwork(
         for track: Track,
         completionHandler: @escaping (UIImage) -> Void
@@ -32,6 +33,8 @@ class SearchBinder: SearchBinderProtocol {
     
     private let iTunesClient: ITunesClientProtocol
     private let artworkCache: NSCache<NSString, UIImage>
+    
+    private let dateFormatter = DateFormatter()
 
     init(
         client: ITunesClientProtocol,
@@ -49,10 +52,7 @@ class SearchBinder: SearchBinderProtocol {
             switch maybeTracks {
                 case .success(let tracks):
                     self?.tracks = tracks.sorted {
-                        // TODO: Ugly non-production sorting but it works on
-                        // this data set since date strings are in
-                        // year-month-date order.
-                        a, b in a.releaseDate < b.releaseDate
+                        $0.releaseDate < $1.releaseDate
                     }
                     completionHandler()
                 case .failure:
@@ -60,6 +60,11 @@ class SearchBinder: SearchBinderProtocol {
                     completionHandler()
             }
         }
+    }
+    
+    func getFormattedReleaseDate(for track: Track) -> String {
+        dateFormatter.dateFormat = "dd MMMM yyyy"
+        return dateFormatter.string(from: track.releaseDate)
     }
     
     // This function has a somewhat quirky API, due to the requirement of using

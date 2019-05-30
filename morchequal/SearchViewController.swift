@@ -103,7 +103,10 @@ extension SearchViewController: UITableViewDataSource {
         
         let track = self.binder.tracks[indexPath.row]
         cell.setInfo(from: track)
-        
+
+        let formatted = self.binder.getFormattedReleaseDate(for: track)
+        cell.setReleaseDate(formatted: formatted)
+
         // We need to load the artwork asynchronously to keep the table view
         // scrolling smoothly.
         let initialArtwork = self.binder.getArtwork(for: track) { artwork in

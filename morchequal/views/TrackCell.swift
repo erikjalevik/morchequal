@@ -109,19 +109,13 @@ class TrackCell: UITableViewCell {
     func setInfo(from track: Track) {
         nameLabel.text = track.name
         albumLabel.text = track.album
-
-        // TODO: This is a hacky shortcut. In a real production app, the date
-        // string received from the server should of course be parsed into a
-        // Date and formatted properly. Furthermore, the formatting of the date
-        // for display should be happening in the SearchBinder. But... time. 🤷🏻‍♂️
-        let rd = track.releaseDate
-        let lowerBound = rd.index(rd.startIndex, offsetBy: 0)
-        let upperBound = rd.index(rd.startIndex, offsetBy: 10)
-        let dateOnly = rd[lowerBound..<upperBound]
-        dateLabel.text = String(dateOnly)
     }
     
     func setArtwork(image: UIImage) {
-        self.albumCover.image = image
+        albumCover.image = image
+    }
+    
+    func setReleaseDate(formatted: String) {
+        dateLabel.text = formatted
     }
 }
