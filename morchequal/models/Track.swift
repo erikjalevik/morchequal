@@ -49,7 +49,6 @@ struct Track: Decodable {
     let name: String
     let artworkUrl: String
     let album: String
-    let kind: String
     let releaseDate: Date
 
     enum CodingKeys: String, CodingKey {
@@ -57,7 +56,6 @@ struct Track: Decodable {
         case name = "trackName"
         case artworkUrl = "artworkUrl100"
         case album = "collectionName"
-        case kind = "kind"
         case releaseDate = "releaseDate"
     }
 }

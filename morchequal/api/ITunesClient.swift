@@ -50,6 +50,10 @@ class ITunesClient: ITunesClientProtocol {
 
         let params: [String: Any] = [
             "term": artist,
+            "limit": 200, // maximum allowed
+            "media": "music", // return only music
+            "entity": "song", // return only songs within music
+            "attribute": "artistTerm" // interpret term as an artist name
         ]
         comp.queryItems = params.map { URLQueryItem(name: $0, value: "\($1)") }
      
@@ -72,10 +76,9 @@ class ITunesClient: ITunesClientProtocol {
             
             switch maybeList {
                 case .success(let list):
-                    let tracks = list.results.filter { t in t.kind == "song" }
-                    completionHandler(.success(tracks))
+                    completionHandler(.success(list.results))
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    print(error)
                     completionHandler(.failure(error))
             }
         }
